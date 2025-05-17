@@ -1,0 +1,43 @@
+<nav class="navbar">
+  <ul>
+    <li><a [routerLink]="['/chat']">Chat</a></li>
+    <li><a [routerLink]="['/home']">Home</a></li>
+    <li><a [routerLink]="['/yo']">Sobre Mi</a></li>
+    <li><a [routerLink]="['/encuesta']">Encuesta</a></li>
+    <li><a [routerLink]="['/puntajes']">Puntajes</a></li>
+    <li><a href="#">Log Out</a></li>
+    <li class="email-container" *ngIf="userEmail">{{ userEmail }}</li>
+  </ul>
+</nav>
+
+<div class = "contenido">
+    <h1 class = "titulo">Mayor o Menor</h1>
+    <div class = "juego">
+        <div class="cartas">
+           
+            <img [src]="cartaActual?.url" style="height: 400px; width: 240px;" />  
+            <img [src]="mostrarSiguiente ? cartaSiguiente?.url : 'tapa.png'" style="height: 400px; width: 240px;" />
+          </div>
+
+        <div class = "botones">
+            <button (click)="Mayor()">MAYOR</button>
+            <button (click)="Igual()">IGUAL</button>
+            <button (click)="Menor()">MENOR</button>
+        </div>
+
+        <div class = "resultados">
+            <h2>PUNTOS: {{ puntos }}</h2>
+            <h2>VIDAS: {{ vidasTotales  }}</h2>
+        </div>
+
+        <div class="respuesta">
+            <h2 *ngIf="respuesta === 'Incorrecto'" style="color: #f31409">
+                Resultado: {{ respuesta }}
+            </h2>
+            <h2 *ngIf="respuesta === 'Correcto'" style="color: rgb(3, 187, 3)">
+                Resultado: {{ respuesta }}
+            </h2>
+        </div>
+    </div> 
+    
+</div>

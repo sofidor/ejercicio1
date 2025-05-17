@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sobre Mí - Sofia Dorbessan</title>
+    <link rel="stylesheet" href="yo.component.css">
+</head>
+<body>
+<nav class="navbar">
+  <ul>
+    <li><a [routerLink]="['/chat']">Chat</a></li>
+    <li><a [routerLink]="['/home']">Home</a></li>
+    <li><a [routerLink]="['/encuesta']">Encuesta</a></li>
+    <li><a [routerLink]="['/puntajes']">Puntajes</a></li>
+    <li><a href="#">Log Out</a></li>
+    <li class="email-container" *ngIf="userEmail">{{ userEmail }}</li>
+  </ul>
+</nav> 
+
+    <header>
+        <div class="header-content">
+            <img src="yo.png" alt="Sofia Dorbessan" class="mi-foto">
+            <div class="bio">
+                <h2>Sofia Dorbessan</h2>
+                <p>Soy estudiante de la Tecnicatura Universitaria en Programacion en la UTN (Universidad Tecnologica Nacional). Donde aprendi diferentes lenguaje como: C , C++ , Java Scrip , Python , PHP ,HTML, CSS, entre otros.</p>
+            </div>
+        </div>
+        <div class="game-section">            
+            <h2>Mi Juego - Pacman</h2>
+            <div class="game-description">
+                <p>Pacman es un juego de arcade clásico lanzado en 1980. El objetivo del juego es controlar a Pacman, una figura circular amarilla, y moverlo a través de un laberinto comiendo todos los puntos mientras se evitan los fantasmas. Si un fantasma toca a Pacman, perderás una vida.</p>
+                <h3>Cómo jugar Pacman</h3>
+                <ul>
+                    <li>Usa las teclas de flechas para mover a Pacman por el laberinto.</li>
+                    <li>Colecciona todos los puntos pequeños para avanzar de nivel.</li>
+                    <li>Evita a los fantasmas: si te tocan, perderás una vida.</li>                    
+                </ul>
+            </div>
+        </div>
+    </header>
+
+    <footer>
+        
+        <div class="social-media-footer">
+            <a href="https://www.linkedin.com/in/sofia-dorbessan-24a669210/" target="_blank">
+                <img src="linkedin.png" class="social-logo" alt="LinkedIn">
+            </a>
+            <a href="https://github.com/sofidor" target="_blank">
+                <img src="github.png" class="social-logo" alt="GitHub">
+            </a>        
+        </div>
+    </footer>
+
+
+</body>
+</html>

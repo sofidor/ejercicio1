@@ -1,0 +1,130 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-image: url(https://images.unsplash.com/photo-1556856425-366d6618905d?q=80&w=1864&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.container {
+    text-align: center;
+    padding: 20px;
+}
+
+.container-nav {
+    text-align: center;
+}
+
+.navbar {
+    background-color: black;
+    padding: 10px 20px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;   
+    z-index: 10;
+}
+
+.navbar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;    
+}
+
+.navbar ul li {
+    margin-left: 30px;
+}
+
+.navbar ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 20px;
+    padding: 10px;
+    display: inline-block;
+}
+
+.navbar ul li a:hover {
+    background-color: #a3ae3a;
+    border-radius: 4px;
+}
+
+/* --------- MODIFICACIONES DE GAME --------- */
+.games-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+    max-width: 800px;
+    margin: 0 auto;
+    justify-items: center;
+    margin-top: 90px;
+}
+
+.game {
+    background-color: #1a1a1a;
+    border: 3px solid #00ffff;
+    border-radius: 8px;
+    padding: 20px;
+    width: 240px;
+    text-align: center;
+    box-shadow: 0 0 10px #00ffff;
+    transition: transform 0.2s ease-in-out;
+}
+
+.game:hover {
+    transform: scale(1.05);
+    border-color: yellow;
+}
+
+.game img {
+    width: 100px;
+    height: auto;
+    margin-bottom: 10px;
+    border-radius: 4px;
+}
+
+.game h2 {
+    font-size:25px;
+    color: #fff;
+    margin: 5px 0;
+}
+
+.game p {
+    font-size: 13px;
+    color: #ccc;
+    margin: 0;
+}
+
+/* --------- ENLACES --------- */
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+  .user-email {
+    color: white;
+    font-size: 20px;
+    padding: 10px;
+    display: inline-block;
+    margin-left: 30px; /* mismo margen que los demás */
+  }  
+
+
+  
+  
+  
+  
+  

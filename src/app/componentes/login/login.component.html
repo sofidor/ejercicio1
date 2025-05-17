@@ -1,0 +1,60 @@
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="author" content="Yinka Enoch Adedokun">
+	<title>Login Page</title>
+</head>
+<body>
+	<div class="container">
+		<nav class="navbar">
+			<ul>
+				<li><a [routerLink]="['/home']">Home</a></li>
+				<li><a [routerLink]="['/chat']">Chat</a></li>
+				<li><a [routerLink]="['/yo']">Sobre Mi</a></li>
+                <li><a [routerLink]="['/encuesta']">Encuesta</a></li>
+                <li><a [routerLink]="['/puntajes']">Puntajes</a></li>
+				<li><a href="#">Log Out</a></li>
+			</ul>
+		</nav>
+	</div>
+	
+	<div class="container-fluid">
+		<div class="row main-content bg-success text-center">
+			<div class="col-md-4 text-center company__info">
+				<span class="company__logo"><h2><span class="fa fa-android"></span></h2></span>
+			</div>
+			<div class="col-md-8 col-xs-12 col-sm-12 login_form ">
+				<div class="container-fluid">
+					<div class="row">
+						<h2>Log In</h2>
+					</div>
+					<div class="row">
+						<form control="" class="form-group">
+							<div class="row">
+								<input type="text" name="username" id="username" class="form__input" placeholder="Username"
+                                [(ngModel)] = "userMail">
+							</div>
+							<div class="row">								
+								<input type="password" name="password" id="password" class="form__input" placeholder="Password"
+                                [(ngModel)] = "userPass">
+							</div>
+							<div class="row">
+								<p class="error-mensaje">{{mensajeError}}</p>
+								<input type="button" value="JUGAR!" class="btn" (click)="LogIn()">
+								<input type="button" value="Autocompletar" class="btn" (click)="AutoComplete()">
+							</div>
+						</form>
+					</div>
+					<div class="row">
+						<p>No tienes una cuenta? <a [routerLink]="['/registro']">Regístrate aquí</a></p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<div class="container-fluid text-center footer">
+		Coded with &hearts; by Sofia Dorbessan
+	</div>	
+    
+</body>

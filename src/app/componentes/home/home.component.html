@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Selecciona tu Juego</title>
+    <link rel="stylesheet" href="home.component.css">
+</head>
+<body>
+    <div class="container-nav">
+		<nav class="navbar">
+			<ul>        
+				<li><a [routerLink]="['/chat']">Chat</a></li>
+				<li><a [routerLink]="['/yo']">Sobre Mi</a></li>
+                <li><a [routerLink]="['/encuesta']">Encuesta</a></li>
+                <li><a [routerLink]="['/puntajes']">Puntajes</a></li>
+				<li><a (click)="cerrarSesion()">Log Out</a></li>           
+                <li *ngIf="userEmail" class="user-email">
+                    {{ userEmail }}
+                </li>
+			</ul>
+		</nav>
+	</div>
+    <div class="container">        
+        <div class="games-grid">
+            <div class="game">
+                <a routerLink="/pacman">
+                    <img src="pacman.jpg" alt="Pacman">
+                    <h2>Pacman</h2>
+                    <p>Escapá de los fantasmas y comé todos los puntos para ganar.</p>
+                </a>
+            </div>
+            <div class="game">
+                <a routerLink="/ahorcado">
+                    <img src="ahorcado.png" alt="Ahorcado">
+                    <h2>Ahorcado</h2>
+                    <p>Adiviná la palabra antes de que se complete el dibujo.</p>
+                </a>
+            </div>
+            <div class="game">
+                <a routerLink="/mayorMenor">
+                    <img src="mayormenor.jpg" alt="Mayor o menor">
+                    <h2>Mayor o Menor</h2>
+                    <p>Adiviná si el próximo número será más alto o más bajo.</p>
+                </a>
+            </div>
+            <div class="game">
+                <a routerLink="/preguntados">
+                  <img src="preguntados.png" alt="Preguntados">
+                  <h2>Preguntados</h2>
+                  <p>Respondé preguntas de cultura general y ganá puntos.</p>
+                </a>
+              </div>
+        </div>
+    </div> 
+</body>
+</html>
+

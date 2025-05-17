@@ -1,0 +1,31 @@
+<div class="chat-container">
+<nav class="navbar">
+  <ul>
+    <li><a [routerLink]="['/login']">Log in</a></li>
+    <li><a [routerLink]="['/home']">Home</a></li>
+    <li><a [routerLink]="['/yo']">Sobre Mi</a></li>
+    <li><a [routerLink]="['/encuesta']">Encuesta</a></li>
+    <li><a [routerLink]="['/puntajes']">Puntajes</a></li>
+    <li><a href="#">Log Out</a></li>
+    <li class="email-container" *ngIf="userEmail">{{ userEmail }}</li>
+  </ul>
+</nav>
+
+  <div class="chat-messages" #scrollMe>
+    <div *ngFor="let msg of messages$ | async" 
+         [ngClass]="{'own-message': msg.nombre === currentUserEmail, 'other-message': msg.nombre !== currentUserEmail}">
+      <div class="message-item">
+        <div class="user-email">
+          {{ msg.nombre === currentUserEmail ? 'Vos' : msg.nombre }}
+        </div>
+        <div class="message-text">{{ msg.texto }}</div>
+        <div class="time">{{ msg.timestamp | date: 'dd/MM/yyyy, HH:mm' }}</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="chat-input">
+    <input  [(ngModel)]="message" (keyup.enter)="sendMessage()" placeholder="Escribe un mensaje..."/>
+    <button (click)="sendMessage()">Enviar</button>
+  </div>
+</div>

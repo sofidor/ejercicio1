@@ -1,0 +1,57 @@
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="author" content="Yinka Enoch Adedokun">
+	<title>Registrarme</title>
+</head>
+<body>
+	<div class="container-nav">
+		<nav class="navbar">
+			<ul>
+				<li><a [routerLink]="['/chat']">Chat</a></li>
+				<li><a [routerLink]="['/yo']">Sobre Mi</a></li>
+                <li><a [routerLink]="['/encuesta']">Encuesta</a></li>
+                <li><a [routerLink]="['/puntajes']">Puntajes</a></li>
+				<li><a href="#">Log Out</a></li>
+			</ul>
+		</nav>
+	</div>
+	
+	<div class="container-fluid">
+		<div class="row main-content bg-success text-center">
+			<div class="col-md-4 text-center company__info">
+				<span class="company__logo"><h2><span class="fa fa-android"></span></h2></span>
+			</div>
+			<div class="col-md-8 col-xs-12 col-sm-12 login_form ">
+				<div class="container-fluid">
+					<div class="row">
+						<h2>Registrate</h2>
+					</div>
+					<div class="row">
+						<form control="" class="form-group">
+							<div class="row">
+								<input type="text" [(ngModel)]="newUserMail" name="username" id="username" class="form__input" placeholder="Email">
+							</div>
+							<div class="row">								
+								<input type="password" [(ngModel)]="newUserPass" name="password" id="password" class="form__input" placeholder="Contraseña">
+							</div>	
+							<div class="row">								
+								<input type="password" [(ngModel)]="newUserRepeatPass" name="repeatpassword" id="repeatpassword" class="form__input" placeholder="Repita la contraseña">
+							</div>	
+							<div class="row">
+								<button type="button" class="btn" (click)="Register()">Registrarme!</button>
+								<p class="error-mensaje">{{msjError}}</p>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<div class="container-fluid text-center footer">
+		Coded with &hearts; by Sofia Dorbessan
+	</div>
+    
+</body>
+

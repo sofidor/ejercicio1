@@ -1,0 +1,177 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+/* Estilo del Navbar */
+.container-nav {
+    text-align: center;
+}
+
+/* === NAVBAR === */
+.navbar {
+    background-color: black;
+    padding: 10px 20px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;   
+    z-index: 10;
+}
+
+.navbar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;    
+}
+
+.navbar ul li {
+    margin-left: 30px;
+}
+
+.navbar ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 20px;
+    padding: 10px;
+    display: inline-block;
+}
+
+.navbar ul li a:hover {
+    background-color: #a3ae3a;
+    border-radius: 4px;
+}
+
+.email-container {
+  color: white;
+  font-size: 20px;
+  padding: 10px;
+  margin-left: auto; 
+}
+
+.contenido {
+    margin: auto;
+    background: url(https://images.unsplash.com/photo-1743574325034-0bf72377d9a6?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D);
+    background-size: 100% 100%;
+    background-color: rgba(255, 255, 255, 0.5);
+    box-shadow: 0 12px 15px 0 rgba(0,0,0,.24), 0 17px 50px 0 rgba(0,0,0,.19);
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.contenido::after {
+    content: none;
+}
+
+.contenido .titulo {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 60px;
+    margin-top: 60px;
+    font-weight: normal;
+    color: #fff;
+    position: absolute;
+    top: 2%;
+    z-index: 1;
+    text-shadow: 
+        -2px -2px 0 #000,  
+         2px -2px 0 #000,
+        -2px  2px 0 #000,
+         2px  2px 0 #000;
+}
+
+.juego {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin-top: 90px;
+}
+
+.cartas {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 50px;
+    z-index: 1;
+}
+
+.cartas img {
+    display: block;
+    margin: 0 auto;
+}
+
+.botones {
+    display: flex;
+    gap: 20px;
+    z-index: 1;
+}
+
+.botones button {
+    padding: 12px 25px;
+    font-size: 18px;
+    background: linear-gradient(145deg, #8290cf, #2754f4);
+    border: none;
+    border-radius: 12px;
+    color: white;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+    font-family: 'Press Start 2P', cursive;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    text-transform: uppercase;
+}
+
+.botones button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.4);
+}
+
+.resultados {
+    position: absolute;
+    left: 5%;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.7);    
+    padding: 2vw;
+    border: 0.3vw solid #ccff00;
+    border-radius: 1vw;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 1.2vw;
+    z-index: 5;
+    box-shadow: 0 0 1vw #ccff00;
+    display: flex;
+    flex-direction: column;
+    gap: 1vw;
+    text-align: left;
+    max-width: 90%;
+}
+
+
+.resultados h2 {
+    margin: 0;
+    font-size: 14px;
+    color: #ccff00;
+}
+
+.respuesta {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: 'Press Start 2P', cursive;    
+    font-weight: bold;
+    font-size: 10px;
+    z-index: 5;
+    text-align: center;    
+    text-shadow: 
+        -2px -2px 0 #000,  
+         2px -2px 0 #000,
+        -2px  2px 0 #000,
+         2px  2px 0 #000;
+}
+

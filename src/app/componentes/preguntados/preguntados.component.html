@@ -1,0 +1,29 @@
+<nav class="navbar">
+  <ul>
+    <li><a [routerLink]="['/chat']">Chat</a></li>
+    <li><a [routerLink]="['/home']">Home</a></li>
+    <li><a [routerLink]="['/yo']">Sobre Mi</a></li>
+    <li><a [routerLink]="['/encuesta']">Encuesta</a></li>
+    <li><a [routerLink]="['/puntajes']">Puntajes</a></li>
+    <li><a href="#">Log Out</a></li>
+    <li class="email-container" *ngIf="userEmail">{{ userEmail }}</li>
+  </ul>
+</nav> 
+
+<h2>¿Qué personaje de Los Simpsons es?</h2>
+
+<div class="imagen-container" *ngIf="personajeCorrecto">
+  <img [src]="actualizarImagen()" alt="Personaje">
+</div>
+
+<div class="opciones">
+  <button (click)="verificarRespuesta(opcionUno)">{{ opcionUno }}</button>
+  <button (click)="verificarRespuesta(opcionDos)">{{ opcionDos }}</button>
+  <button (click)="verificarRespuesta(opcionTres)">{{ opcionTres }}</button>
+  <button (click)="verificarRespuesta(opcionCuatro)">{{ opcionCuatro }}</button>
+</div>
+
+<div class="info-box">
+  <p>❤️ Vidas: {{ vidas }}</p>
+  <p>⭐ Puntaje: {{ score }}/10</p>
+</div>

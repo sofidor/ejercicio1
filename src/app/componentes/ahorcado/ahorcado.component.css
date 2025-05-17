@@ -1,0 +1,196 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+body {
+  overflow: hidden;
+  height: 100%;
+  background-image: url('https://www.creativefabrica.com/wp-content/uploads/2022/11/28/Hangmans-Noose-Tree-Background-49132024-1.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;   
+  margin: 0;
+}
+
+/* Estilo del Navbar */
+
+.navbar {
+    background-color: black;
+    padding: 10px 20px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;   
+    z-index: 10;
+}
+
+.navbar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;    
+}
+
+.navbar ul li {
+    margin-left: 30px;
+}
+
+.navbar ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 20px;
+    padding: 10px;
+    display: inline-block;
+}
+
+.navbar ul li a:hover {
+    background-color: #a3ae3a;
+    border-radius: 4px;
+}
+
+.user-email {
+  color: white;
+  font-size: 20px;
+  padding: 10px;
+  margin-left: auto;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  padding-top: 50px; /* deja espacio para el navbar */
+  box-sizing: border-box;
+}
+
+/* BLOQUE PALABRA Y LETRAS */
+.palabra-contenedor {
+  background-color: #000000a5;
+  padding: 15px;
+  border-radius: 10px;
+  display: inline-block;
+  margin-top: 50px;
+}
+
+.palabra-titulo {
+  font-size: 18px;
+  font-weight: bold;
+  margin-right: 10px;
+  border-radius: 5px;
+  color: rgb(239, 239, 28);
+  font-family: 'Press Start 2P', cursive;
+}
+
+.letra {
+  padding: 5px;
+  margin: 0 5px;
+  font-size: 20px;
+  text-align: center;
+  color: rgb(239, 239, 28);  
+}
+/* DIBUJO */
+.ahorcado-dibujo {
+  margin: 10px auto;
+}
+
+svg {
+  background-color: #dde81da4;
+  border: 1px solid #0b0a0a;
+  border-radius: 8px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+  padding: 10px;
+}
+
+/* TECLADO */
+.botones-letras {
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
+  margin-top: 10px; 
+}
+
+.fila-teclado {
+  display: flex;
+  justify-content: center;   
+}
+/* BOTONES */
+button {
+  margin: 5px;
+  padding: 10px;
+  font-size: 18px;
+  width: 50px;
+  height: 50px;
+  border-radius: 5px;
+  border: 1px solid #000000;
+  cursor: pointer;
+  background-color: #ebecb448;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  font-family: 'Press Start 2P', cursive;  
+}
+
+button:hover {
+  background-color: #c6cb289d;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+button:active {
+  background-color: #d5d5d5;
+  box-shadow: inset 0px 4px 6px rgba(0, 0, 0, 0.4);
+}
+
+button:disabled {
+  background-color: #ddd;
+  cursor: not-allowed;
+}
+
+
+/* VIDAS + PUNTOS */
+.contenedor-juego {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.info-juego {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-right: 20px; 
+  background-color: rgba(255, 255, 255, 0.3);
+  padding: 5px; 
+  border-radius: 10px;
+  width: 120px;   
+}
+
+.vidas, .puntos {
+  margin-bottom: 15px;
+}
+
+.vidas h2, .puntos h2 {
+  font-size: 16px; 
+  margin: 5px 0;
+  font-weight: bold;
+}
+
+.numero-intentos, .numero-puntos {
+  font-size: 22px; 
+  font-weight: bold;
+}
+
+.numero-intentos {
+  color: red;
+}
+
+.numero-puntos {
+  color: green;
+}
+
+.ahorcado-dibujo {
+  padding: 15px;
+  border-radius: 10px;
+}

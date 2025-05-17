@@ -1,0 +1,134 @@
+body {
+  margin: 0;
+  padding: 0;
+  background: url('/assets/fondo-arcade.jpg') no-repeat center center fixed; /* si tenés fondo */
+  background-size: cover;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+/* === NAVBAR === */
+.navbar {
+    background-color: black;
+    padding: 10px 20px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;   
+    z-index: 10;
+}
+
+.navbar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;    
+}
+
+.navbar ul li {
+    margin-left: 30px;
+}
+
+.navbar ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 20px;
+    padding: 10px;
+    display: inline-block;
+}
+
+.navbar ul li a:hover {
+    background-color: #a3ae3a;
+    border-radius: 4px;
+}
+
+.email-container {
+  color: white;
+  font-size: 20px;
+  padding: 10px;
+  margin-left: auto; /* empuja este item a la derecha */
+}
+
+
+/* CONTENEDOR FORMULARIO */
+.login-wrap {
+  padding-top: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 100vh;
+}
+
+.login-html {
+  background: rgba(0, 0, 0, 0.75);
+  padding: 40px;
+  border-radius: 20px;
+  width: 90%;
+  max-width: 950px;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.5);
+  color: white;
+}
+
+/* TÍTULO */
+.titulo {
+  font-size: 36px;
+  margin-bottom: 30px;
+  color: white;
+  text-align: center;
+}
+
+/* CAMPOS DEL FORMULARIO */
+input[type="text"],
+input[type="number"],
+select,
+.form-select {
+  background-color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  padding: 10px;
+  width: 100%;
+  font-size: 16px;
+}
+
+input::placeholder {
+  color: #999;
+}
+
+input[type="radio"] {
+  margin-right: 5px;
+}
+
+.checkbox-group {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+}
+
+.checkbox-group label {
+  font-size: 16px;
+  color: white;
+}
+
+.text-danger {
+  font-size: 12px;
+  color: #ff4d4d;
+}
+
+/* BOTÓN */
+button[type="submit"] {
+  background: linear-gradient(to right, #4a90e2, #007bff);
+  border: none;
+  color: white;
+  padding: 12px;
+  font-size: 16px;
+  width: 100%;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+button[type="submit"]:hover {
+  background: linear-gradient(to right, #3578e5, #005be0);
+}

@@ -1,0 +1,165 @@
+.container-fluid, .row {
+    margin: 0;
+    padding: 0;
+}
+html, body {
+    margin: 0;
+    padding: 0;
+    background-color: black; 
+    height: 100%;
+    overflow: hidden;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;   
+}
+
+.container-nav {
+    text-align: center;
+}
+
+.navbar {
+    background-color: black;
+    padding: 10px 20px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;   
+}
+
+.navbar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;    
+}
+
+.navbar ul li {
+    margin-left: 30px;
+}
+
+.navbar ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 20px;
+    padding: 10px;
+    display: inline-block;
+}
+
+.navbar ul li a:hover {
+    background-color: #a3ae3a;
+    border-radius: 4px;
+}
+.main-content{
+    width: 50%;
+    border-radius: 20px;
+    box-shadow: 0 5px 5px rgba(0,0,0,.4);
+    margin: 7em auto 2.5em auto;
+    display: flex;
+    background-color: #fff;
+    overflow: hidden;
+}
+.company__info{
+    background-image: url('https://i.pinimg.com/736x/dc/19/53/dc1953322fa3946096ff13800e2de799.jpg');
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-size: cover;
+    height: 60vh;
+    background-position: center;
+}
+.fa-android{
+    font-size: 3em;
+}
+@media screen and (max-width: 640px) {
+    .main-content {
+        width: 90%;
+    }
+    .company__info {
+        display: none;
+    }
+    .login_form {
+        border-top-left-radius: 20px;
+        border-bottom-left-radius: 20px;
+    }
+}
+@media screen and (min-width: 642px) and (max-width:800px){
+    .main-content {
+        width: 70%;
+    }
+}
+.row > h2 {
+    color: #ffffff;
+    font-size: 60px;
+    font-weight: bold;
+    text-shadow: 2px 2px 0px #e5ff00,  /* Sombra en la esquina inferior derecha */
+    -2px 2px 0px  #e5ff00, /* Sombra en la esquina inferior izquierda */
+    2px -2px 0px  #e5ff00, /* Sombra en la esquina superior derecha */
+    -2px -2px 0px  #e5ff00; /* Sombra en la esquina superior izquierda */
+
+}
+.login_form{
+    background-color: #fff;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    border-top: 1px solid #ccc;
+    border-right: 1px solid #ccc;
+}
+form {
+    padding: 0 2em;
+}
+.form__input{
+    width: 100%;
+    border: 0px solid transparent;
+    border-radius: 0;
+    border-bottom: 1px solid #aaa;
+    padding: 1em .5em .5em;
+    padding-left: 2em;
+    outline: none;
+    margin: 1.5em auto;
+    transition: all .5s ease;
+}
+.form__input:focus{
+    border-bottom-color: #dee81f;
+    box-shadow: 0 0 5px rgba(7, 7, 7, 0.4); 
+    border-radius: 4px;
+}
+.row {
+    display: flex;
+    justify-content: space-around; /* Asegura que ambos botones se distribuyan equitativamente */
+}
+
+.btn {
+    transition: all .5s ease;
+    width: 40%; /* Cambia a 40% para que ambos botones quepan juntos */
+    border-radius: 30px;
+    color: #dee81f;
+    font-weight: 600;
+    background-color: #fff;
+    border: 1px solid #dee81f;
+
+    text-align: center;
+}
+.btn:hover, .btn:focus{
+    background-color: #dee81f;
+    color: #fff;
+}
+
+.footer {
+    text-align: center;
+    padding: 10px 0;
+    color: #fff; /* Hace el texto del footer visible */
+    background-color: black; /* Asegura que el footer tenga el mismo color que el fondo */
+    margin-top: 6em; /* Empuja el footer al fondo de la página */
+}
+
+
+.error-mensaje{
+    color: red;
+  }
+  

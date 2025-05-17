@@ -1,0 +1,169 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100vh; /* usa 100% de la ventana visible */
+  width: 100vw;
+  overflow: hidden; /* NO permitir scroll nunca */
+  background-color: #000; /* NEGRO real de fondo */
+  display: flex;
+  flex-direction: column;
+}
+
+/* === NAVBAR === */
+.navbar {
+    background-color: black;
+    padding: 10px 20px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;   
+    z-index: 10;
+}
+
+.navbar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;    
+}
+
+.navbar ul li {
+    margin-left: 30px;
+}
+
+.navbar ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 20px;
+    padding: 10px;
+    display: inline-block;
+}
+
+.navbar ul li a:hover {
+    background-color: #a3ae3a;
+    border-radius: 4px;
+}
+
+.email-container {
+  color: white;
+  font-size: 20px;
+  padding: 10px;
+  margin-left: auto; 
+}
+
+
+.score-board {
+  flex-shrink: 0;
+  position: fixed;
+  top: 80px;
+  right: 30px;
+  background-color: #222;
+  color: #daf201;
+  padding: 15px 25px;
+  font-size: 20px;
+  font-family: 'Press Start 2P', cursive;
+  border: 3px solid #daf201;
+  border-radius: 15px;
+  box-shadow: 0 0 15px #daf201, 0 0 5px #daf201 inset;
+  text-align: center;
+  z-index: 999;
+}
+
+.main-content {
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  background-color: #000; /* NEGRO también dentro del main */
+}
+
+.game-board {
+  display: grid;
+  grid-template-columns: repeat(20, 1fr);
+  grid-template-rows: repeat(20, 1fr);
+  width: min(80vmin, 80vmin);
+  height: min(80vmin, 80vmin);
+  gap: 2px;
+  background-color: black;
+  margin-top: 90px;
+}
+.cell {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+/* Estilos del laberinto */
+.wall {
+  background-color: blue;
+}
+
+.path {
+  background-color: black;
+  position: relative;
+}
+
+/* Monedas */
+.path::after {
+  content: '';
+  display: block;
+  background-color: gold;
+  width: 30%;
+  height: 30%;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* Pac-Man */
+.pacman {
+  background-color: yellow;
+  border-radius: 50%;
+}
+
+/* Fantasmas */
+.ghost {
+  background-color: red;
+  border-radius: 50%;
+}
+
+/* Controles */
+.controles {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 90px;
+  gap: 10px;
+}
+
+.horizontal-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.controles button {
+  width: 50px;
+  height: 50px;
+  font-size: 24px;
+  background-color: #f0f0f0;
+  border: 2px solid #0c40f9;
+  border-radius: 10px;
+  cursor: pointer;
+  user-select: none;
+  touch-action: none;
+}
+
+.juego-con-controles {
+  display: flex;
+  align-items: center;
+  gap: 30px; /* Separación entre tablero y controles */
+}

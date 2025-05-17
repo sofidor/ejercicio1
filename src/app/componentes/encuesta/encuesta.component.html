@@ -1,0 +1,85 @@
+<nav class="navbar">
+  <ul>
+    <li><a [routerLink]="['/login']">Log in</a></li>
+    <li><a [routerLink]="['/chat']">Chat</a></li>
+    <li><a [routerLink]="['/yo']">Sobre Mi</a></li>
+    <li><a [routerLink]="['/home']">Home</a></li>
+    <li><a [routerLink]="['/puntajes']">Puntajes</a></li>
+    <li><a href="#">Log Out</a></li>
+    <li class="email-container" *ngIf="userEmail">{{ userEmail }}</li>
+  </ul>
+</nav>
+
+<div class="login-wrap">
+  <div class="login-html">
+    <h2 class="titulo">Encuesta</h2>
+
+    <form [formGroup]="form" (ngSubmit)="enviarForm()">
+      <div class="row formulario">
+        <div class="col-md-6">
+          <div class="mb-4">
+            <label for="nombre" class="form-label">Nombre</label>
+            <input type="text" class="form-control" id="nombre" formControlName="nombre" placeholder="Ingrese nombre">
+            <ng-container *ngIf="nombre?.errors">
+              <small *ngIf="nombre?.hasError('pattern')" class="text-danger">Solo letras</small>
+              <small *ngIf="submitted && nombre?.hasError('required')" class="text-danger">Campo requerido</small>
+            </ng-container>
+          </div>
+
+          <div class="mb-4">
+            <label for="apellido" class="form-label">Apellido</label>
+            <input type="text" class="form-control" id="apellido" formControlName="apellido" placeholder="Ingrese apellido">
+            <ng-container *ngIf="apellido?.errors">
+              <small *ngIf="apellido?.hasError('pattern')" class="text-danger">Solo letras</small>
+              <small *ngIf="submitted && apellido?.hasError('required')" class="text-danger">Campo requerido</small>
+            </ng-container>
+          </div>
+
+          <div class="mb-4">
+            <label for="edad" class="form-label">Edad</label>
+            <input type="number" class="form-control" id="edad" formControlName="edad" placeholder="Ingrese edad" min="18" max="99">
+            <ng-container *ngIf="edad?.errors">
+              <small *ngIf="edad?.hasError('min')" class="text-danger">Debe ser mayor de edad</small>
+              <small *ngIf="edad?.hasError('max')" class="text-danger">Debe ser menor de 99</small>
+              <small *ngIf="submitted && edad?.hasError('required')" class="text-danger">Campo requerido</small>
+            </ng-container>
+          </div>
+
+          <div class="mb-4">
+            <label for="telefono" class="form-label">Teléfono</label>
+            <input type="text" class="form-control" id="telefono" formControlName="telefono" placeholder="Ingrese teléfono">
+            <ng-container *ngIf="telefono?.errors">
+              <small *ngIf="telefono?.hasError('pattern')" class="text-danger">Solo números</small>
+              <small *ngIf="telefono?.hasError('minlength')" class="text-danger">Mínimo 6 dígitos</small>
+              <small *ngIf="telefono?.hasError('maxlength')" class="text-danger">Máximo 10 dígitos</small>
+              <small *ngIf="submitted && telefono?.hasError('required')" class="text-danger">Campo requerido</small>
+            </ng-container>
+          </div>
+        </div>
+        
+        <div class="col-md-6">
+          <div class="mb-5">
+            <label class="form-label">¿Cuál fue tu juego favorito?</label>
+            <select class="form-select" formControlName="juegoFavorito">
+              <option value="preguntados">Preguntados</option>
+              <option value="mayoromenor">Mayor o Menor</option>
+              <option value="ahorcado">Ahorcado</option>
+              <option value="pacman">Pacman</option>
+            </select>
+          </div>
+
+          <div class="mb-5">
+            <label class="form-label">¿Cómo puntuarías "Pacman"?</label>
+            <div class="checkbox-group">
+              <label><input type="radio" name="puntaje" value="1-4" formControlName="puntaje" /> 1-4</label>
+              <label><input type="radio" name="puntaje" value="5-7" formControlName="puntaje" /> 5-7</label>
+              <label><input type="radio" name="puntaje" value="8-10" formControlName="puntaje" /> 8-10</label>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <button type="submit" class="btn btn-primary mt-4 w-50">Enviar</button>
+    </form>
+  </div>
+</div>

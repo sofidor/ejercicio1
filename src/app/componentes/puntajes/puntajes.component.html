@@ -1,0 +1,47 @@
+<nav class="navbar">
+  <ul>
+    <li><a [routerLink]="['/chat']">Chat</a></li>
+    <li><a [routerLink]="['/home']">Home</a></li>
+    <li><a [routerLink]="['/yo']">Sobre Mi</a></li>
+    <li><a [routerLink]="['/encuesta']">Encuesta</a></li>
+    <li><a [routerLink]="['/puntajes']">Puntajes</a></li>
+    <li><a href="#">Log Out</a></li>
+    <li class="email-container" *ngIf="userEmail">{{ userEmail }}</li>
+  </ul>
+</nav> 
+<div class="login-wrap">
+	<div class="login-html">
+    <h2 class="titulo">Puntajes</h2>
+    <h3 style="color: white">TOP 5</h3>
+
+    <div class="form-container">
+
+      <label style = "color: rgb(156, 156, 156)" for="juego" class="form-label">Elige el Juego</label>
+      <select class="form-select" (change)="onCollectionChange($event)" style="width: 50%; text-align: center; text-align-last: center;" id="juego">
+        <option value="preguntados">Preguntados</option>
+        <option value="mayormenor">Mayor o Menor</option>
+        <option value="ahorcado">Ahorcado</option>
+        <option value="pacman">Pacman</option>
+      </select>
+
+    </div>
+
+    <div class = "tabla">
+      <div class="columna">
+        <h3>Email</h3>
+        <p *ngFor="let dato of datosPuntajes$ | async">{{ dato.email }}</p>
+      </div>
+      <div class="columna">
+        <h3>Fecha</h3>
+        <p *ngFor="let dato of datosPuntajes$ | async">{{ dato.fecha | date:'dd/MM/yyyy HH:mm' }}</p>
+      </div>
+      <div class="columna">
+        <h3>Puntos</h3>
+        <p *ngFor="let dato of datosPuntajes$ | async">{{ dato.puntos }}</p>
+      </div>
+    </div>
+
+	</div>
+
+    
+</div>

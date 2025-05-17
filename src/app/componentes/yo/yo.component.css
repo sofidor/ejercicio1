@@ -1,0 +1,154 @@
+/* Reseteo de márgenes y estilo global */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background: #f4f4f4;
+    text-align: center;
+}
+
+header {
+    display: flex;
+    justify-content: space-around; /* Distribuye el contenido horizontalmente */
+    align-items: flex-start; /* Alinea el contenido en la parte superior */
+    height: 100vh; /* Asegura que el header ocupe toda la altura de la pantalla */
+    background: #333;
+    color: #fff;
+    padding-top: 100px; /* Añade margen para que no se superponga con el navbar */
+}
+
+/* === NAVBAR === */
+.navbar {
+    background-color: black;
+    padding: 10px 20px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;   
+    z-index: 10;
+}
+
+.navbar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;    
+}
+
+.navbar ul li {
+    margin-left: 30px;
+}
+
+.navbar ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 20px;
+    padding: 10px;
+    display: inline-block;
+}
+
+.navbar ul li a:hover {
+    background-color: #a3ae3a;
+    border-radius: 4px;
+}
+
+.email-container {
+  color: white;
+  font-size: 20px;
+  padding: 10px;
+  margin-left: auto; 
+}
+
+.header-content {
+    display: flex;
+    align-items: center; /* Alinea verticalmente al centro la imagen y el texto */
+    justify-content: flex-start; /* Alinea horizontalmente el contenido al principio */
+    text-align: left; /* Alinea el texto a la izquierda */
+}
+
+.bio {
+    margin-left: 20px; /* Añade espacio entre la imagen y el texto */
+    padding: 20px;
+    border-radius: 8px;
+    max-width: 500px;
+    text-align: left;
+    margin-top: 110px;
+}
+
+.mi-foto {
+    width: 200px; /* Ajusta el tamaño de la imagen */
+    height: auto;
+    border-radius: 10%; /* Hace la imagen redonda */
+    margin-top: 120px;
+}
+
+
+.bio p {
+    margin-top: 20px;
+    font-size: 18px; /* Tamaño del texto de la descripción */
+    line-height: 1.8;
+}
+
+/* Estilo de la sección del juego */
+.game-section {   
+    margin-top: 50px;
+    padding: 20px;
+    border-radius: 8px;
+    max-width: 500px;
+    text-align: left;
+}
+
+.game-description h3 {
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+.game-description ul {
+    list-style-type: disc;
+    margin-left: 20px;
+    text-align: left;
+}
+
+.game-description p {
+    font-size: 18px;
+    line-height: 1.8;
+}
+
+/* Estilo del footer */
+footer {
+    background: #333;
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between; /* Distribuye el contenido a ambos lados */
+    align-items: center;
+    padding: 10px 40px; /* Ajusta el espaciado para el texto y los iconos */
+}
+
+.social-media-footer {
+    display: flex; 
+    margin-left: 660px;
+ 
+}
+
+/* Estilo de logos sociales */
+.social-logo {
+    width: 40px;
+    height: 40px;
+    margin-left: 20px;
+}
+

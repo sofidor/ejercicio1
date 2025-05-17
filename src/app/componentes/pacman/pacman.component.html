@@ -1,0 +1,43 @@
+<body>
+<nav class="navbar">
+  <ul>
+    <li><a [routerLink]="['/chat']">Chat</a></li>
+    <li><a [routerLink]="['/home']">Home</a></li>
+    <li><a [routerLink]="['/yo']">Sobre Mi</a></li>
+    <li><a [routerLink]="['/encuesta']">Encuesta</a></li>
+    <li><a [routerLink]="['/puntajes']">Puntajes</a></li>
+    <li><a href="#">Log Out</a></li>
+    <li class="email-container" *ngIf="userEmail">{{ userEmail }}</li>
+  </ul>
+</nav>
+  
+	<!-- PUNTOS -->
+	<div class="score-board">
+	  Puntos: {{ score }}
+	</div>
+  
+	<!-- CONTENIDO PRINCIPAL -->
+	<div class="main-content">
+		<div class="juego-con-controles">
+		  <div class="game-board">
+			<div *ngFor="let row of board; let rowIndex = index">
+			  <div *ngFor="let cell of row; let colIndex = index" 
+				   [ngClass]="getCellClass(cell, rowIndex, colIndex)" 
+				   class="cell">
+			  </div>
+			</div>
+		  </div>
+	  
+		  <!-- CONTROLES AL COSTADO -->
+		  <div class="controles">
+			<button (click)="moveButton('up')">⬆️</button>
+			<div class="horizontal-buttons">
+			  <button (click)="moveButton('left')">⬅️</button>
+			  <button (click)="moveButton('right')">➡️</button>
+			</div>
+			<button (click)="moveButton('down')">⬇️</button>
+		  </div>
+		</div>
+	  </div>
+  </body>
+  

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Juego del Ahorcado</title>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <div class="container-nav">
+    <nav class="navbar">
+      <ul>
+        <li><a [routerLink]="['/chat']">Chat</a></li>
+        <li><a [routerLink]="['/home']">Home</a></li>        
+        <li><a [routerLink]="['/yo']">Sobre Mi</a></li>        
+        <li><a [routerLink]="['/encuesta']">Encuesta</a></li>
+        <li><a [routerLink]="['/puntajes']">Puntajes</a></li>
+        <li><a href="#">Log Out</a></li>
+    <div class="user-email" *ngIf="userEmail">
+      {{ userEmail }}
+    </div>
+      </ul>
+    </nav>
+  </div>
+
+  <!-- CONTENIDO PRINCIPAL -->
+  <div class="container">
+
+    <!-- PALABRA EN JUEGO -->
+    <div class="palabra-contenedor">
+      <p class="palabra-titulo">Palabra:</p>
+      <span *ngFor="let letra of palabraMostrada" class="letra">{{ letra }}</span>
+    </div>
+
+    <!-- VIDAS + PUNTOS + AHORCADO -->
+    <div class="contenedor-juego">
+      <div class="info-juego">
+        <div class="vidas">
+          <h2>Vidas restantes:</h2>
+          <p class="numero-intentos">{{ vidasTotales }}</p>
+        </div>
+
+        <div class="puntos">
+          <h2>Puntos:</h2>
+          <p class="numero-puntos">{{ puntos }}</p>
+        </div>
+      </div>
+
+      <div class="ahorcado-dibujo">
+        <svg width="200" height="250">
+          <line x1="10" y1="230" x2="150" y2="230" stroke="black" stroke-width="5" />
+          <line x1="80" y1="230" x2="80" y2="30" stroke="black" stroke-width="5" />
+          <line x1="80" y1="30" x2="150" y2="30" stroke="black" stroke-width="5" />
+          <line x1="150" y1="30" x2="150" y2="50" stroke="black" stroke-width="5" />
+          <!-- Cuerpo del ahorcado basado en errores -->
+          <circle *ngIf="erroresDePalabra >= 1" cx="150" cy="70" r="20" stroke="black" stroke-width="5" fill="none" />
+          <line *ngIf="erroresDePalabra >= 2" x1="150" y1="90" x2="150" y2="150" stroke="black" stroke-width="5" />
+          <line *ngIf="erroresDePalabra >= 3" x1="150" y1="110" x2="120" y2="130" stroke="black" stroke-width="5" />
+          <line *ngIf="erroresDePalabra >= 4" x1="150" y1="110" x2="180" y2="130" stroke="black" stroke-width="5" />
+          <line *ngIf="erroresDePalabra >= 5" x1="150" y1="150" x2="120" y2="180" stroke="black" stroke-width="5" />
+          <line *ngIf="erroresDePalabra >= 6" x1="150" y1="150" x2="180" y2="180" stroke="black" stroke-width="5" />
+        </svg>
+      </div>
+    </div>
+
+    <!-- TECLADO -->
+    <div class="botones-letras">
+      <div class="fila-teclado">
+        <button *ngFor="let letra of alfabeto.slice(0, 10)" (click)="intentarLetra(letra)" [disabled]="letrasIntentadas.includes(letra)">
+          {{ letra }}
+        </button>
+      </div>
+      <div class="fila-teclado">
+        <button *ngFor="let letra of alfabeto.slice(10, 19)" (click)="intentarLetra(letra)" [disabled]="letrasIntentadas.includes(letra)">
+          {{ letra }}
+        </button>
+      </div>
+      <div class="fila-teclado">
+        <button *ngFor="let letra of alfabeto.slice(19)" (click)="intentarLetra(letra)" [disabled]="letrasIntentadas.includes(letra)">
+          {{ letra }}
+        </button>
+      </div>
+    </div>
+
+  </div> 
+
+</body>
+</html>
