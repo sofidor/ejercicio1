@@ -12,7 +12,7 @@ import Swal from 'sweetalert2';
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [RouterLink,RouterLinkActive,CommonModule , FormsModule],
+  imports: [RouterLink,CommonModule , FormsModule],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'
 })
