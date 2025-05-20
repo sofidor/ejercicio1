@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { Router, RouterLink, RouterLinkActive } from '@angular/router';
 import {Auth, createUserWithEmailAndPassword} from '@angular/fire/auth';
 import { Firestore, addDoc, collection } from '@angular/fire/firestore';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-registro',
@@ -41,6 +42,8 @@ export class RegistroComponent {
         const col = collection(this.firestore, 'users');
         addDoc(col, { fecha: new Date(), email: this.newUserMail })
           .then(() => {
+            this.mostrarBienvenidaSweetAlert(this.newUserMail);
+
             this.router.navigate(['/home']);
           })
           .catch((error) => {
@@ -70,7 +73,16 @@ export class RegistroComponent {
   } else {
     this.msjError = 'Las contraseñas no coinciden';
   }
-
-
 }
+  mostrarBienvenidaSweetAlert(email:string): void {
+    Swal.fire({
+      title: '¡Inicio de sesión exitoso!',
+      text: email,
+      timer: 2000,
+      timerProgressBar: true,
+      showConfirmButton: false,
+      background: '#1a1a1a',
+      color: '#00ffcc',
+    });
+  }
 }

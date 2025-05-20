@@ -133,10 +133,11 @@ export class PreguntadosComponent {
     }).then(r => r.isConfirmed ? this.reiniciarJuego() : this.volverAlHome());
   }
 
-  reiniciarJuego(): void {
-    window.location.reload();
-  }
-
+reiniciarJuego(): void {
+  this.score = 0;
+  this.vidas = 3;
+  this.inicializarJuego();
+}
   volverAlHome(): void {
     this.router.navigateByUrl('/home');
   }

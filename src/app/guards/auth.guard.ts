@@ -17,7 +17,7 @@ export const authGuard: CanActivateFn = (route, state) => {
         Swal.fire({
           icon: 'warning',
           title: 'Acceso denegado',
-          text: 'Debes iniciar sesión para acceder al chat',
+          text: 'Debes iniciar sesión para acceder',
           confirmButtonText: 'Entendido',
           background: '#1a1a1a',
           color: '#fff'
