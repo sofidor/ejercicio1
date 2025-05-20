@@ -43,12 +43,30 @@
     border-radius: 4px;
 }
 
-.email-container {
-  color: white;
-  font-size: 20px;
+.logout-button {
+  background-color: #cc0000;
+  color: white !important;
+  border-radius: 4px;
   padding: 10px;
+  transition: background-color 0.3s ease;
+}
+
+.logout-button:hover {
+  background-color: #ff0000;
+}
+
+.logout-right {
   margin-left: auto; 
 }
+
+.user-email {
+margin-left: auto;
+margin-right: auto;
+margin-right: auto;
+font-size: 18px;
+color: #dcff5f;
+padding: 10px;
+} 
 
 .contenido {
     margin: auto;
@@ -158,20 +176,48 @@
     color: #ccff00;
 }
 
-.respuesta {
-    position: absolute;
-    bottom: 30px;
-    left: 50%;
-    transform: translateX(-50%);
-    font-family: 'Press Start 2P', cursive;    
-    font-weight: bold;
-    font-size: 10px;
-    z-index: 5;
-    text-align: center;    
-    text-shadow: 
-        -2px -2px 0 #000,  
-         2px -2px 0 #000,
-        -2px  2px 0 #000,
-         2px  2px 0 #000;
+/* Pantallas menores a 768px */
+@media screen and (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .navbar ul {
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+
+  .navbar ul li {
+    margin: 10px 0;
+  }
+
+  .navbar ul li a {
+    font-size: 18px;
+    padding: 10px 15px;
+    display: block;
+  }
+
+  .logout-button {
+    width: 100%;
+    text-align: center;
+  }
 }
 
+
+/* Pantallas grandes */
+@media screen and (min-width: 1440px) {
+  .contenido .titulo {
+    font-size: 80px;
+  }
+
+  .botones button {
+    font-size: 22px;
+    padding: 15px 30px;
+  }
+
+  .resultados {
+    font-size: 1.4vw;
+  }
+}

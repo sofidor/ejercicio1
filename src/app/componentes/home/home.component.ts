@@ -23,23 +23,10 @@ export class HomeComponent implements OnInit {
 ) {}
 
   ngOnInit(): void {
-    // const user = this.auth.currentUser;
-    // if (user && user.email) {
-    //   this.userEmail = user.email;
-
       this.authService.getUserEmailObservable().subscribe(mail => {
       this.userEmail = mail;
-    })
-      
-
-      // const yaMostrado = sessionStorage.getItem('bienvenida_mostrada');
-      // if (!yaMostrado) {
-      //   this.mostrarBienvenidaSweetAlert();
-      //   sessionStorage.setItem('bienvenida_mostrada', 'true');
-      // }
-    }
-  
-
+    })      
+  }
 
 
 cerrarSesion() {

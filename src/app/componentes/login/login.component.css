@@ -76,12 +76,13 @@ body {
     background-size: cover;
     height: 60vh;
     background-position: center;
+    background-color: black;
 }
 .fa-android{
     font-size: 3em;
 }
 
-/* Responsive Styles */
+/* Responsive */
 @media screen and (max-width: 640px) {
     .main-content {
         width: 90%;
@@ -103,10 +104,10 @@ body {
     color: #ffffff;
     font-size: 60px;
     font-weight: bold;
-    text-shadow: 2px 2px 0px #e5ff00,  /* Sombra en la esquina inferior derecha */
-    -2px 2px 0px  #e5ff00, /* Sombra en la esquina inferior izquierda */
-    2px -2px 0px  #e5ff00, /* Sombra en la esquina superior derecha */
-    -2px -2px 0px  #e5ff00; /* Sombra en la esquina superior izquierda */
+    text-shadow: 2px 2px 0px #1818c8,  /* Sombra en la esquina inferior derecha */
+    -2px 2px 0px  #1818c8, /* Sombra en la esquina inferior izquierda */
+    2px -2px 0px  #1818c8, /* Sombra en la esquina superior derecha */
+    -2px -2px 0px  #1818c8; /* Sombra en la esquina superior izquierda */
 
 }
 .login_form{
@@ -131,7 +132,7 @@ form {
     transition: all .5s ease;
 }
 .form__input:focus{
-    border-bottom-color: #dee81f;
+    border-bottom-color: #1818c8;
     box-shadow: 0 0 5px rgba(7, 7, 7, 0.4); 
     border-radius: 4px;
 }
@@ -144,16 +145,16 @@ form {
     transition: all .5s ease;
     width: 40%; /* Cambia a 40% para que ambos botones quepan juntos */
     border-radius: 30px;
-    color: #dee81f;
+    color: #1818c8;
     font-weight: 600;
     background-color: #fff;
-    border: 1px solid #dee81f;
+    border: 1px solid #1818c8;
     margin-top: 1.5em;
     margin-bottom: 1em;
     text-align: center;
 }
 .btn:hover, .btn:focus{
-    background-color: #dee81f;
+    background-color: #1818c8;
     color: #fff;
 }
 

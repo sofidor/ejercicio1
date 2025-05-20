@@ -17,7 +17,7 @@ import { AuthService } from '../../servicios/auth.service';
 export class PacmanComponent {
   board: number[][] = [];
   pacmanPosition = { x: 1, y: 1 };
-  ghostPositions = [
+  ghostPositions = [  
     { x: 9, y: 9 },
     { x: 11, y: 9 },
     { x: 13, y: 9 }
@@ -82,7 +82,7 @@ juegoTerminado: boolean = false;
     }
   }
 
-  async checkCollision() {
+  async checkCollision() {  //si choca con un fantasma
   if (this.juegoTerminado) return;
 
   for (const ghost of this.ghostPositions) {
@@ -101,7 +101,7 @@ juegoTerminado: boolean = false;
         allowOutsideClick: false,
       }).then((result) => {
         if (result.isConfirmed) {
-          this.reiniciarJuego(); // sin reload
+          this.reiniciarJuego(); 
         } else {
           this.volverAlHome();
         }
@@ -113,7 +113,7 @@ juegoTerminado: boolean = false;
 }
 
 
-  getCellClass(cell: number, rowIndex: number, colIndex: number) {
+  getCellClass(cell: number, rowIndex: number, colIndex: number) { // retorno para aplicar css
     if (rowIndex === this.pacmanPosition.y && colIndex === this.pacmanPosition.x) return 'pacman';
     for (const ghost of this.ghostPositions) {
       if (rowIndex === ghost.y && colIndex === ghost.x) return 'ghost';
@@ -138,7 +138,7 @@ juegoTerminado: boolean = false;
         break;
   }
 }
-  startGhostMovement() {
+  startGhostMovement() { //se mueven aleatoriamente cada 500mts
     setInterval(() => {
       for (const ghost of this.ghostPositions) {
         const directions = [
@@ -230,4 +230,26 @@ juegoTerminado: boolean = false;
       await addDoc(coleccionRef, { email, puntos, fecha });
     }
   }
+
+   cerrarSesion() {
+        this.authService.logOut().subscribe({
+          next: () => {
+            Swal.fire({
+              icon: 'success',
+              title: 'Sesión cerrada',
+              timer: 1500,
+              showConfirmButton: false
+            }).then(() => {
+              this.router.navigate(['/login']);
+            });
+          },
+          error: (err) => {
+            Swal.fire({
+              icon: 'error',
+              title: 'Error al cerrar sesión',
+              text: err.message
+            });
+          }
+        });
+      }
 }

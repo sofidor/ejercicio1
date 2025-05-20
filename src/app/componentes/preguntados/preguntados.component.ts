@@ -73,7 +73,7 @@ export class PreguntadosComponent {
     }
 
     opcionesSeleccionadas.push(this.personajeCorrecto);
-    opcionesSeleccionadas.sort(() => 0.5 - Math.random());
+    opcionesSeleccionadas.sort(() => 0.5 - Math.random()); //opcion correcta en una posicion aleatorea
 
     this.opcionUno = opcionesSeleccionadas[0].character;
     this.opcionDos = opcionesSeleccionadas[1].character;
@@ -84,19 +84,25 @@ export class PreguntadosComponent {
   verificarRespuesta(opcion: string): void {
     if (opcion === this.personajeCorrecto.character) {
       this.score++;
-      if (this.score === 10) {
-        this.ganar();
-      } else {
-        this.inicializarJuego();
-      }
-    } else {
+      this.mostrarResultadoSwal(true);
+      setTimeout(() => {
+        if (this.score === 10) {
+          this.ganar();
+        } else {
+          this.inicializarJuego();
+        }
+    }, 1100); 
+  } else {
       this.vidas--;
-      if (this.vidas <= 0) {
-        this.perder();
-      } else {
-        this.inicializarJuego();
-      }
-    }
+      this.mostrarResultadoSwal(false);
+      setTimeout(() => {
+        if (this.vidas <= 0) {
+          this.perder();
+        } else {
+          this.inicializarJuego();
+        }
+      }, 1100); 
+  }
   }
 
   actualizarImagen(): string {
@@ -157,4 +163,39 @@ export class PreguntadosComponent {
       await addDoc(coleccionRef, { email, puntos, fecha });
     }
   }
+
+  mostrarResultadoSwal(correcto: boolean) {
+  Swal.fire({
+    icon: correcto ? 'success' : 'error',
+    title: correcto ? '¡Bien hecho!' : '¡Ups!',
+    text: correcto ? 'Respuesta correcta' : 'Respuesta incorrecta',
+    timer: 1000,
+    showConfirmButton: false,
+    position: 'center',
+    background: '#fff',
+  });
+}
+
+
+  cerrarSesion() {
+          this.authService.logOut().subscribe({
+            next: () => {
+              Swal.fire({
+                icon: 'success',
+                title: 'Sesión cerrada',
+                timer: 1500,
+                showConfirmButton: false
+              }).then(() => {
+                this.router.navigate(['/login']);
+              });
+            },
+            error: (err) => {
+              Swal.fire({
+                icon: 'error',
+                title: 'Error al cerrar sesión',
+                text: err.message
+              });
+            }
+          });
+        }
 }

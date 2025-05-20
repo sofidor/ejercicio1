@@ -31,7 +31,6 @@ export class MayormenorComponent implements OnInit {
 
   userEmail: string | null = null;
 
-
   // Firebase
   firestore = inject(Firestore);
   auth = inject(Auth);
@@ -72,47 +71,55 @@ export class MayormenorComponent implements OnInit {
     return this.mazo[i];
   }
 
-  Mayor(): void {
-    this.mostrarSiguiente = true;
-    setTimeout(() => {
-      if (this.cartaActual && this.cartaSiguiente && this.cartaSiguiente.numero > this.cartaActual.numero) {
-        this.respuesta = 'Correcto';
-        this.puntos++;
-      } else {
-        this.respuesta = 'Incorrecto';
-        this.vidasTotales--;
-      }
-      this.verificarEstado();
-    }, 1500);
-  }
+ Mayor(): void {
+  this.mostrarSiguiente = true;
+  setTimeout(() => {
+    if (this.cartaActual && this.cartaSiguiente && this.cartaSiguiente.numero > this.cartaActual.numero) {
+      this.respuesta = 'Correcto';
+      this.puntos++;
+      this.mostrarResultadoSwal(true);
+    } else {
+      this.respuesta = 'Incorrecto';
+      this.vidasTotales--;
+      this.mostrarResultadoSwal(false);
+    }
+    this.verificarEstado();
+  }, 1500);
+}
 
-  Menor(): void {
-    this.mostrarSiguiente = true;
-    setTimeout(() => {
-      if (this.cartaActual && this.cartaSiguiente && this.cartaSiguiente.numero < this.cartaActual.numero) {
-        this.respuesta = 'Correcto';
-        this.puntos++;
-      } else {
-        this.respuesta = 'Incorrecto';
-        this.vidasTotales--;
-      }
-      this.verificarEstado();
-    }, 1500);
-  }
 
-  Igual(): void {
-    this.mostrarSiguiente = true;
-    setTimeout(() => {
-      if (this.cartaActual && this.cartaSiguiente && this.cartaSiguiente.numero === this.cartaActual.numero) {
-        this.respuesta = 'Correcto';
-        this.puntos++;
-      } else {
-        this.respuesta = 'Incorrecto';
-        this.vidasTotales--;
-      }
-      this.verificarEstado();
-    }, 1500);
-  }
+ Menor(): void {
+  this.mostrarSiguiente = true;
+  setTimeout(() => {
+    if (this.cartaActual && this.cartaSiguiente && this.cartaSiguiente.numero < this.cartaActual.numero) {
+      this.respuesta = 'Correcto';
+      this.puntos++;
+      this.mostrarResultadoSwal(true);
+    } else {
+      this.respuesta = 'Incorrecto';
+      this.vidasTotales--;
+      this.mostrarResultadoSwal(false);
+    }
+    this.verificarEstado();
+  }, 1500);
+}
+
+ Igual(): void {
+  this.mostrarSiguiente = true;
+  setTimeout(() => {
+    if (this.cartaActual && this.cartaSiguiente && this.cartaSiguiente.numero === this.cartaActual.numero) {
+      this.respuesta = 'Correcto';
+      this.puntos++;
+      this.mostrarResultadoSwal(true);
+    } else {
+      this.respuesta = 'Incorrecto';
+      this.vidasTotales--;
+      this.mostrarResultadoSwal(false);
+    }
+    this.verificarEstado();
+  }, 1500);
+}
+
 
   async verificarEstado(): Promise<void> {
     if (this.vidasTotales === 0) {
@@ -179,4 +186,39 @@ export class MayormenorComponent implements OnInit {
       await addDoc(coleccionRef, { email, puntos, fecha });
     }
   }
+
+  mostrarResultadoSwal(correcto: boolean) {
+  Swal.fire({
+    icon: correcto ? 'success' : 'error',
+    title: correcto ? '¡Bien hecho!' : '¡Ups!',
+    text: correcto ? 'Respuesta correcta' : 'Respuesta incorrecta',
+    timer: 1000,
+    showConfirmButton: false,
+    position: 'center',
+    background: '#fff',
+  });
+}
+
+
+  cerrarSesion() {
+      this.authService.logOut().subscribe({
+        next: () => {
+          Swal.fire({
+            icon: 'success',
+            title: 'Sesión cerrada',
+            timer: 1500,
+            showConfirmButton: false
+          }).then(() => {
+            this.router.navigate(['/login']);
+          });
+        },
+        error: (err) => {
+          Swal.fire({
+            icon: 'error',
+            title: 'Error al cerrar sesión',
+            text: err.message
+          });
+        }
+      });
+    }
 }

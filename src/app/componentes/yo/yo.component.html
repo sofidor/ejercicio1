@@ -8,13 +8,17 @@
 </head>
 <body>
 <nav class="navbar">
-  <ul>
+  <ul><li *ngIf="userEmail" class="user-email">{{ userEmail }}</li>
     <li><a [routerLink]="['/chat']">Chat</a></li>
     <li><a [routerLink]="['/home']">Home</a></li>
     <li><a [routerLink]="['/encuesta']">Encuesta</a></li>
     <li><a [routerLink]="['/puntajes']">Puntajes</a></li>
-    <li><a href="#">Log Out</a></li>
-    <li class="email-container" *ngIf="userEmail">{{ userEmail }}</li>
+    <li class="logout-right" *ngIf="userEmail">
+  <a (click)="cerrarSesion()" class="logout-button">Log Out</a>
+    </li>
+    <li *ngIf="!userEmail">
+  <a [routerLink]="['/login']" class="login-button">Log In</a>
+</li>
   </ul>
 </nav> 
 
@@ -29,12 +33,12 @@
         <div class="game-section">            
             <h2>Mi Juego - Pacman</h2>
             <div class="game-description">
-                <p>Pacman es un juego de arcade clásico lanzado en 1980. El objetivo del juego es controlar a Pacman, una figura circular amarilla, y moverlo a través de un laberinto comiendo todos los puntos mientras se evitan los fantasmas. Si un fantasma toca a Pacman, perderás una vida.</p>
+                <p>Pacman es un juego de arcade clásico lanzado en 1980. El objetivo del juego es controlar a Pacman, una figura circular amarilla, y moverlo a través de un laberinto comiendo todos los puntos mientras se evitan los fantasmas. Si un fantasma toca a Pacman, perderás.</p>
                 <h3>Cómo jugar Pacman</h3>
                 <ul>
                     <li>Usa las teclas de flechas para mover a Pacman por el laberinto.</li>
-                    <li>Colecciona todos los puntos pequeños para avanzar de nivel.</li>
-                    <li>Evita a los fantasmas: si te tocan, perderás una vida.</li>                    
+                    <li>Colecciona todas las monedas para ganar.</li>
+                    <li>Evita a los fantasmas: si te tocan, perderás.</li>                    
                 </ul>
             </div>
         </div>

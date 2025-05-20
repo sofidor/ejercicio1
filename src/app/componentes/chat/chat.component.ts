@@ -5,11 +5,12 @@ import { ChatService } from '../../servicios/chat.service';
 import { Auth } from '@angular/fire/auth';
 import { AuthService } from '../../servicios/auth.service';
 import { FormsModule } from '@angular/forms';
-import { RouterLink } from '@angular/router';
+import { RouterLink ,Router} from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { Observable } from 'rxjs';
 import { Mensaje } from '../../interfaces/mensaje';
 
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-chat',
@@ -29,7 +30,8 @@ export class ChatComponent implements OnInit, AfterViewChecked {
 
   constructor(
     private chatService: ChatService,
-    private authService: AuthService
+    private authService: AuthService,
+    private router: Router
   ) {}
 
 ngOnInit(): void {
@@ -75,5 +77,28 @@ ngOnInit(): void {
           });
       }
     }
+  }
+
+  cerrarSesion() {
+    this.authService.logOut().subscribe({
+      next: () => {
+       
+        Swal.fire({
+          icon: 'success',
+          title: 'Sesión cerrada',
+          timer: 1500,
+          showConfirmButton: false
+        }).then(() => {
+          this.router.navigate(['/login']);
+        });
+      },
+      error: (err) => {
+        Swal.fire({
+          icon: 'error',
+          title: 'Error al cerrar sesión',
+          text: err.message
+        });
+      }
+    });
   }
 }

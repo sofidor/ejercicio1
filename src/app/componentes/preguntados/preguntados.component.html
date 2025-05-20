@@ -1,12 +1,11 @@
 <nav class="navbar">
-  <ul>
+  <ul><li *ngIf="userEmail" class="user-email">{{ userEmail }}</li>
     <li><a [routerLink]="['/chat']">Chat</a></li>
     <li><a [routerLink]="['/home']">Home</a></li>
     <li><a [routerLink]="['/yo']">Sobre Mi</a></li>
     <li><a [routerLink]="['/encuesta']">Encuesta</a></li>
     <li><a [routerLink]="['/puntajes']">Puntajes</a></li>
-    <li><a href="#">Log Out</a></li>
-    <li class="email-container" *ngIf="userEmail">{{ userEmail }}</li>
+    <li class="logout-right"><a (click)="cerrarSesion()" class="logout-button">Log Out</a></li>
   </ul>
 </nav> 
 

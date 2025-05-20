@@ -1,12 +1,15 @@
 <nav class="navbar">
-  <ul>
-    <li><a [routerLink]="['/login']">Log in</a></li>
+  <ul><li *ngIf="userEmail" class="user-email">{{ userEmail }}</li>    
     <li><a [routerLink]="['/chat']">Chat</a></li>
     <li><a [routerLink]="['/yo']">Sobre Mi</a></li>
     <li><a [routerLink]="['/home']">Home</a></li>
     <li><a [routerLink]="['/puntajes']">Puntajes</a></li>
-    <li><a href="#">Log Out</a></li>
-    <li class="email-container" *ngIf="userEmail">{{ userEmail }}</li>
+    <li class="logout-right" *ngIf="userEmail">
+  <a (click)="cerrarSesion()" class="logout-button">Log Out</a>
+    </li>
+    <li *ngIf="!userEmail">
+  <a [routerLink]="['/login']" class="login-button">Log In</a>
+</li>
   </ul>
 </nav>
 
@@ -61,6 +64,16 @@
           <div class="mb-5">
             <label class="form-label">¿Cuál fue tu juego favorito?</label>
             <select class="form-select" formControlName="juegoFavorito">
+              <option value="preguntados">Preguntados</option>
+              <option value="mayoromenor">Mayor o Menor</option>
+              <option value="ahorcado">Ahorcado</option>
+              <option value="pacman">Pacman</option>
+            </select>
+          </div>
+
+          <div class="mb-5">
+            <label class="form-label">¿Cuál fue tu juego menos favorito?</label>
+            <select class="form-select" formControlName="juegoMenosFavorito">
               <option value="preguntados">Preguntados</option>
               <option value="mayoromenor">Mayor o Menor</option>
               <option value="ahorcado">Ahorcado</option>

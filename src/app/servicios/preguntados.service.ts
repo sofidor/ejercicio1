@@ -3,10 +3,10 @@ import { HttpClient } from '@angular/common/http';
 import { Observable, map } from 'rxjs';
 
 export interface Personaje {
-  quote: string;
-  character: string;
-  image: string;
-  characterDirection: string;
+  quote: string; //frase
+  character: string; //pj
+  image: string; //imagen
+  characterDirection: string; 
 }
 
 @Injectable({
@@ -18,7 +18,7 @@ export class PreguntadosService {
   constructor(private http: HttpClient) {}
 
   obtenerPersonaje(): Observable<Personaje> {
-    return this.http.get<Personaje[]>(`${this.apiUrl}/quotes?count=1`).pipe(
+    return this.http.get<Personaje[]>(`${this.apiUrl}/quotes?count=1`).pipe( 
       map(resp => resp[0])
     );
   }

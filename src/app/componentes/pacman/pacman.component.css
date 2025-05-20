@@ -47,12 +47,30 @@ html, body {
     border-radius: 4px;
 }
 
-.email-container {
-  color: white;
-  font-size: 20px;
+.logout-button {
+  background-color: #cc0000;
+  color: white !important;
+  border-radius: 4px;
   padding: 10px;
+  transition: background-color 0.3s ease;
+}
+
+.logout-button:hover {
+  background-color: #ff0000;
+}
+
+.logout-right {
   margin-left: auto; 
 }
+
+.user-email {
+margin-left: auto;
+margin-right: auto;
+margin-right: auto;
+font-size: 18px;
+color: #dcff5f;
+padding: 10px;
+} 
 
 
 .score-board {
