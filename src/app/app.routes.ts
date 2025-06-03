@@ -19,27 +19,31 @@ export const routes: Routes = [
     path: 'yo',
     loadComponent: () => import('./componentes/yo/yo.component').then(m => m.YoComponent)
   },
-  {
-    path: 'pacman',
-    loadComponent: () => import('./componentes/pacman/pacman.component').then(m => m.PacmanComponent)
+    {
+    path: 'juegos',
+    loadChildren: () => import('./module/juegos.module').then(m => m.JuegosModule)
   },
-  {
-    path: 'ahorcado',
-    loadComponent: () => import('./componentes/ahorcado/ahorcado.component').then(m => m.AhorcadoComponent)
-  },
-  {
-    path: 'mayorMenor',
-    loadComponent: () => import('./componentes/mayormenor/mayormenor.component').then(m => m.MayormenorComponent)
-  },
+  // {
+  //   path: 'pacman',
+  //   loadComponent: () => import('./componentes/pacman/pacman.component').then(m => m.PacmanComponent)
+  // },
+  // {
+  //   path: 'ahorcado',
+  //   loadComponent: () => import('./componentes/ahorcado/ahorcado.component').then(m => m.AhorcadoComponent)
+  // },
+  // {
+  //   path: 'mayorMenor',
+  //   loadComponent: () => import('./componentes/mayormenor/mayormenor.component').then(m => m.MayormenorComponent)
+  // },
   {
     path: 'chat',
     loadComponent: () => import('./componentes/chat/chat.component').then(m => m.ChatComponent),
     canActivate: [authGuard]
   },
-  {
-    path: 'preguntados',
-    loadComponent: () => import('./componentes/preguntados/preguntados.component').then(m => m.PreguntadosComponent)
-  },
+  // {
+  //   path: 'preguntados',
+  //   loadComponent: () => import('./componentes/preguntados/preguntados.component').then(m => m.PreguntadosComponent)
+  // },
   {
     path: 'encuesta',
     loadComponent: () => import('./componentes/encuesta/encuesta.component').then(m => m.EncuestaComponent)

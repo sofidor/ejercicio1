@@ -72,6 +72,22 @@ color: #dcff5f;
 padding: 10px;
 } 
 
+.lives-board {
+  position: fixed;
+  top: 120px;
+  right: 30px;
+  background-color: #222;
+  color: #f54242;
+  padding: 15px 25px;
+  font-size: 20px;
+  font-family: 'Press Start 2P', cursive;
+  border: 3px solid #f54242;
+  border-radius: 15px;
+  box-shadow: 0 0 15px #f54242, 0 0 5px #f54242 inset;
+  text-align: center;
+  z-index: 999;
+  margin-top: 60px;
+}
 
 .score-board {
   flex-shrink: 0;

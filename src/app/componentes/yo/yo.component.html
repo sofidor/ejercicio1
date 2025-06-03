@@ -9,14 +9,14 @@
 <body>
 <nav class="navbar">
   <ul><li *ngIf="userEmail" class="user-email">{{ userEmail }}</li>
-    <li><a [routerLink]="['/chat']">Chat</a></li>
-    <li><a [routerLink]="['/home']">Home</a></li>
+    <li *ngIf="userEmail"><a [routerLink]="['/chat']">Chat</a></li>
+    <li *ngIf="userEmail"><a [routerLink]="['/home']">Home</a></li>
     <li><a [routerLink]="['/encuesta']">Encuesta</a></li>
     <li><a [routerLink]="['/puntajes']">Puntajes</a></li>
     <li class="logout-right" *ngIf="userEmail">
   <a (click)="cerrarSesion()" class="logout-button">Log Out</a>
     </li>
-    <li *ngIf="!userEmail">
+    <li *ngIf="!userEmail"> 
   <a [routerLink]="['/login']" class="login-button">Log In</a>
 </li>
   </ul>
@@ -38,7 +38,7 @@
                 <ul>
                     <li>Usa las teclas de flechas para mover a Pacman por el laberinto.</li>
                     <li>Colecciona todas las monedas para ganar.</li>
-                    <li>Evita a los fantasmas: si te tocan, perderás.</li>                    
+                    <li>Evita a los fantasmas: si te tocan, perderás una vida.</li>                    
                 </ul>
             </div>
         </div>

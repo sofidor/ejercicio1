@@ -96,6 +96,13 @@ export class EncuestaComponent implements OnInit {
     showConfirmButton: false,
   });
 
+    this.form.reset({
+    juegoFavorito: 'preguntados',
+    juegoMenosFavorito: 'pacman',
+    puntaje: '5-7'
+  });
+    this.submitted = false;
+
   }
 
   reiniciarPagina() {

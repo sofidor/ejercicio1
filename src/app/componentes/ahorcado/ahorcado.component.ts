@@ -8,8 +8,7 @@ import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-ahorcado',
-  standalone: true,
-  imports: [CommonModule, RouterLink],
+  standalone: false,
   templateUrl: './ahorcado.component.html',
   styleUrl: './ahorcado.component.css'
 })

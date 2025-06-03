@@ -14,8 +14,7 @@ interface Carta {
 
 @Component({
   selector: 'app-mayormenor',
-  standalone: true,
-  imports: [CommonModule, RouterLink],
+  standalone: false,
   templateUrl: './mayormenor.component.html',
   styleUrl: './mayormenor.component.css'
 })

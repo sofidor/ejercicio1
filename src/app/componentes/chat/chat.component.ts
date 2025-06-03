@@ -69,8 +69,7 @@ ngOnInit(): void {
 
         this.chatService.guardarChats(mensaje)
           .then(() => {
-            this.message = '';
-            // El scroll se manejará automáticamente con ngAfterViewChecked
+            this.message = '';            
           })
           .catch(error => {
             console.error('Error enviando el mensaje:', error);

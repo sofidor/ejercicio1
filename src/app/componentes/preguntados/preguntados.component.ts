@@ -11,8 +11,7 @@ import { AuthService } from '../../servicios/auth.service';
 
 @Component({
   selector: 'app-preguntados',
-  standalone: true,
-  imports: [CommonModule, RouterModule],
+  standalone: false,
   templateUrl: './preguntados.component.html',
   styleUrl: './preguntados.component.css'
 })
